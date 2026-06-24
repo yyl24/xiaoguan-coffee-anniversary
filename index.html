@@ -939,11 +939,8 @@
           <h2>把熟悉的老地方，留给今晚的你</h2>
           <p class="sub">窗边长桌、木质吧台、暖黄色吊灯、绿植角落，每一处都为聊天和合照准备好了。</p>
         </div>
-        <div class="window-scene" aria-label="小馆咖啡环境插画">
-          <div class="lamp"></div>
-          <div class="plant"><i class="leaf"></i><i class="leaf"></i><i class="leaf"></i><i class="pot"></i></div>
-          <div class="table"></div>
-          <div class="cup"></div>
+        <div class="window-scene" aria-label="小馆咖啡环境实拍">
+          <img src="cafe-window.jpg" alt="小馆咖啡窗边实景" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />
         </div>
         <div class="tag-row">
           <div class="tag"><b>手冲吧台</b>周年限定豆单现场开放试饮</div>
@@ -1052,6 +1049,7 @@
         </div>
       </div>
     </div>
+    <audio id="bgm" loop preload="auto" src="music.mp3" style="display:none"></audio>
   </main>
 
   <script>
@@ -1066,8 +1064,6 @@
     let current = 0;
     let startY = 0;
     let selectedPeople = "1";
-    let audioCtx;
-    let audioTimer;
     let musicOn = false;
 
     screens.forEach((_, index) => {
@@ -1195,28 +1191,13 @@
     });
 
     function startCoffeeSound() {
-      audioCtx ||= new (window.AudioContext || window.webkitAudioContext)();
-      const notes = [261.63, 329.63, 392, 493.88];
-      let i = 0;
-      clearInterval(audioTimer);
-      audioTimer = setInterval(() => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = "sine";
-        osc.frequency.value = notes[i % notes.length];
-        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.045, audioCtx.currentTime + .04);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + .42);
-        osc.connect(gain).connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + .46);
-        i += 1;
-      }, 760);
+      const bgm = document.querySelector('#bgm');
+      bgm.play().catch(() => {});
     }
 
     function stopCoffeeSound() {
-      clearInterval(audioTimer);
-      audioTimer = null;
+      const bgm = document.querySelector('#bgm');
+      bgm.pause();
     }
 
     function drawHero() {
