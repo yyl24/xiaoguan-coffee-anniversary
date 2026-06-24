@@ -1074,13 +1074,19 @@
       dots.appendChild(dot);
     });
 
+    let locked = false;
     function go(index) {
-      current = Math.max(0, Math.min(index, screens.length - 1));
+      if (locked) return;
+      const target = Math.max(0, Math.min(index, screens.length - 1));
+      if (target === current) return;
+      current = target;
       stage.style.transform = `translateY(${-current * 100}dvh)`;
       screens.forEach((screen, i) => screen.classList.toggle("active", i === current));
       [...dots.children].forEach((dot, i) => dot.classList.toggle("active", i === current));
       progress.style.width = `${((current + 1) / screens.length) * 100}%`;
       if (current === 1) animateCounters();
+      locked = true;
+      setTimeout(() => locked = false, 750);
     }
 
     function showToast(text) {
