@@ -1064,7 +1064,7 @@
     let current = 0;
     let startY = 0;
     let selectedPeople = "1";
-    let musicOn = false;
+    let musicOn = true;
 
     screens.forEach((_, index) => {
       const dot = document.createElement("button");
@@ -1275,6 +1275,12 @@
     drawHero();
     initScratch();
     go(0);
+    startCoffeeSound();
+    // 移动端首次触摸时重试自动播放（浏览器限制需用户手势）
+    document.addEventListener('click', function autoPlayOnce() {
+      if (musicOn) startCoffeeSound();
+      document.removeEventListener('click', autoPlayOnce);
+    }, { once: true });
   </script>
 </body>
 </html>
