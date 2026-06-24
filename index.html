@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#2d2018" />
+  <title>小馆咖啡一周年邀请函</title>
+  <style>
+    :root {
+      --ink: #281d17;
+      --paper: #fff8ed;
+      --cream: #f5dfbd;
+      --coffee: #5b3827;
+      --caramel: #c8874b;
+      --sage: #6e8068;
+      --rose: #b95f58;
+      --gold: #e7b85c;
+      --line: rgba(40, 29, 23, .16);
+      --shadow: 0 22px 60px rgba(35, 21, 12, .24);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    body {
+      font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+      color: var(--ink);
+      background: #1f1713;
+      letter-spacing: 0;
+    }
+
+    button, input { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+
+    .phone {
+      position: relative;
+      width: min(100vw, 460px);
+      height: 100dvh;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--paper);
+      isolation: isolate;
+    }
+
+    .stage {
+      height: 100%;
+      transition: transform .72s cubic-bezier(.22, .9, .2, 1);
+      will-change: transform;
+    }
+
+    .screen {
+      position: relative;
+      height: 100dvh;
+      padding: 28px 24px 34px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero {
+      color: #fff8ed;
+      background:
+        radial-gradient(circle at 76% 17%, rgba(231, 184, 92, .42), transparent 26%),
+        linear-gradient(160deg, rgba(33, 21, 15, .86), rgba(73, 46, 31, .68)),
+        #2d2018;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .steam {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .75;
+      pointer-events: none;
+    }
+
+    .steam span {
+      position: absolute;
+      bottom: 22%;
+      width: 16px;
+      height: 160px;
+      border: 2px solid rgba(255, 248, 237, .34);
+      border-color: transparent rgba(255, 248, 237, .34) transparent transparent;
+      border-radius: 50%;
+      animation: rise 4.2s ease-in-out infinite;
+    }
+
+    .steam span:nth-child(1) { left: 30%; animation-delay: .1s; }
+    .steam span:nth-child(2) { left: 48%; height: 190px; animation-delay: .8s; }
+    .steam span:nth-child(3) { left: 64%; animation-delay: 1.5s; }
+
+    @keyframes rise {
+      0%, 100% { transform: translateY(36px) scale(.8); opacity: 0; }
+      38% { opacity: .78; }
+      72% { transform: translateY(-32px) scale(1.08); opacity: .2; }
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 3;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid currentColor;
+      position: relative;
+    }
+
+    .mark::before {
+      content: "";
+      width: 16px;
+      height: 10px;
+      border: 2px solid currentColor;
+      border-top: 0;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 248, 237, .42);
+      color: inherit;
+      background: rgba(255, 248, 237, .12);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .icon-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    .hero-title {
+      margin-top: 38px;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+      opacity: .88;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      opacity: .7;
+    }
+
+    h1, h2, p { margin: 0; }
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(54px, 17vw, 76px);
+      line-height: .92;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .hero-title p {
+      margin-top: 18px;
+      max-width: 290px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255, 248, 237, .9);
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 2;
+      padding: 18px;
+      border-radius: 8px;
+      background: rgba(255, 248, 237, .14);
+      border: 1px solid rgba(255, 248, 237, .28);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .meta-grid span {
+      display: block;
+      color: rgba(255, 248, 237, .72);
+      font-size: 12px;
+    }
+
+    .hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: currentColor;
+      opacity: .72;
+      font-size: 12px;
+      z-index: 4;
+    }
+
+    .hint::after {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      animation: bounce 1.4s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(45deg); }
+      50% { transform: translateY(7px) rotate(45deg); }
+    }
+
+    .light {
+      background:
+        linear-gradient(180deg, rgba(255, 248, 237, .96), rgba(245, 223, 189, .74)),
+        radial-gradient(circle at 10% 12%, rgba(185, 95, 88, .18), transparent 30%);
+    }
+
+    .section-head {
+      z-index: 2;
+    }
+
+    .kicker {
+      font-size: 13px;
+      color: var(--rose);
+      font-weight: 700;
+    }
+
+    h2 {
+      margin-top: 8px;
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 900;
+      max-width: 330px;
+    }
+
+    .sub {
+      margin-top: 12px;
+      color: rgba(40, 29, 23, .68);
+      line-height: 1.72;
+      font-size: 15px;
+      max-width: 330px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin: 20px 0 10px;
+    }
+
+    .story {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .5);
+      padding: 15px;
+      box-shadow: 0 10px 30px rgba(91, 56, 39, .08);
+      transform: translateY(20px);
+      opacity: 0;
+      transition: .6s ease;
+    }
+
+    .screen.active .story { transform: translateY(0); opacity: 1; }
+    .screen.active .story:nth-child(2) { transition-delay: .12s; }
+    .screen.active .story:nth-child(3) { transition-delay: .24s; }
+
+    .story b {
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .story p {
+      font-size: 14px;
+      line-height: 1.62;
+      color: rgba(40, 29, 23, .72);
+    }
+
+    .counter-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .counter {
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      padding: 13px 8px;
+      text-align: center;
+      background: #fffaf1;
+    }
+
+    .counter strong {
+      display: block;
+      font-size: 24px;
+      color: var(--coffee);
+    }
+
+    .counter span {
+      font-size: 12px;
+      color: rgba(40, 29, 23, .62);
+    }
+
+    .room {
+      background:
+        linear-gradient(180deg, rgba(48, 34, 25, .05), transparent 28%),
+        var(--paper);
+    }
+
+    .window-scene {
+      position: relative;
+      height: 47vh;
+      min-height: 295px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, #98b2a4 0 38%, #f1d7a9 38% 42%, #6f4c35 42% 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .window-scene::before,
+    .window-scene::after {
+      content: "";
+      position: absolute;
+      background: rgba(40, 29, 23, .78);
+      z-index: 3;
+    }
+
+    .window-scene::before { left: 50%; top: 0; width: 2px; height: 42%; }
+    .window-scene::after { left: 0; top: 40%; width: 100%; height: 2px; }
+
+    .plant {
+      position: absolute;
+      left: 20px;
+      bottom: 58px;
+      width: 76px;
+      height: 130px;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 34px;
+      height: 58px;
+      border-radius: 100% 0;
+      background: var(--sage);
+      transform-origin: bottom;
+    }
+
+    .leaf:nth-child(1) { left: 14px; bottom: 38px; transform: rotate(-38deg); }
+    .leaf:nth-child(2) { left: 32px; bottom: 54px; transform: rotate(22deg); }
+    .leaf:nth-child(3) { left: 8px; bottom: 72px; transform: rotate(-8deg); background: #829070; }
+    .pot {
+      position: absolute;
+      left: 15px;
+      bottom: 0;
+      width: 46px;
+      height: 42px;
+      background: var(--rose);
+      clip-path: polygon(8% 0, 92% 0, 78% 100%, 22% 100%);
+    }
+
+    .table {
+      position: absolute;
+      right: 0;
+      bottom: 46px;
+      width: 78%;
+      height: 16px;
+      background: #3f2a20;
+      border-radius: 20px 0 0 20px;
+      box-shadow: 0 13px 0 #2b1d18;
+    }
+
+    .cup {
+      position: absolute;
+      right: 72px;
+      bottom: 72px;
+      width: 92px;
+      height: 68px;
+      border-radius: 0 0 34px 34px;
+      background: #fff6e8;
+      box-shadow: inset 0 -12px 0 #efd1a8;
+    }
+
+    .cup::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      width: 62px;
+      height: 31px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 43% 45%, #f8dcae 0 18%, #815139 19% 42%, #4b3024 43%);
+    }
+
+    .cup::after {
+      content: "";
+      position: absolute;
+      right: -28px;
+      top: 18px;
+      width: 30px;
+      height: 28px;
+      border: 7px solid #fff6e8;
+      border-left: 0;
+      border-radius: 0 24px 24px 0;
+    }
+
+    .lamp {
+      position: absolute;
+      right: 38px;
+      top: 0;
+      width: 94px;
+      height: 118px;
+      border-left: 2px solid #31231c;
+    }
+
+    .lamp::after {
+      content: "";
+      position: absolute;
+      left: -38px;
+      bottom: 0;
+      width: 76px;
+      height: 42px;
+      background: var(--gold);
+      clip-path: polygon(24% 0, 76% 0, 100% 100%, 0 100%);
+      box-shadow: 0 22px 44px rgba(231, 184, 92, .44);
+    }
+
+    .tag-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.54);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .tag b { display: block; margin-bottom: 4px; color: var(--coffee); }
+
+    .event {
+      background:
+        radial-gradient(circle at 80% 12%, rgba(110, 128, 104, .2), transparent 28%),
+        linear-gradient(180deg, #fff9ef, #f7e6c7);
+    }
+
+    .agenda {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .agenda button {
+      min-height: 64px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffaf1;
+      color: var(--ink);
+      display: grid;
+      grid-template-columns: 58px 1fr 24px;
+      align-items: center;
+      text-align: left;
+      padding: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(91,56,39,.08);
+    }
+
+    .agenda time {
+      color: var(--rose);
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .agenda strong { display: block; font-size: 15px; }
+    .agenda span { font-size: 12px; color: rgba(40, 29, 23, .62); }
+
+    .agenda svg { width: 20px; height: 20px; stroke: var(--coffee); fill: none; stroke-width: 2; }
+
+    .detail {
+      min-height: 70px;
+      padding: 15px;
+      border-radius: 8px;
+      color: #fff8ed;
+      background: var(--coffee);
+      line-height: 1.7;
+      font-size: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .map-screen {
+      background: #eef0df;
+    }
+
+    .map {
+      position: relative;
+      height: 44vh;
+      min-height: 280px;
+      border-radius: 8px;
+      border: 1px solid rgba(40,29,23,.14);
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, transparent 0 18%, rgba(255,255,255,.62) 18% 21%, transparent 21% 42%, rgba(255,255,255,.62) 42% 45%, transparent 45% 71%, rgba(255,255,255,.62) 71% 74%, transparent 74%),
+        linear-gradient(0deg, transparent 0 25%, rgba(255,255,255,.62) 25% 28%, transparent 28% 55%, rgba(255,255,255,.62) 55% 58%, transparent 58%),
+        #d9dfc4;
+      box-shadow: var(--shadow);
+    }
+
+    .park {
+      position: absolute;
+      left: 8%;
+      top: 10%;
+      width: 32%;
+      height: 28%;
+      border-radius: 8px;
+      background: #9db487;
+    }
+
+    .river {
+      position: absolute;
+      right: -8%;
+      bottom: 12%;
+      width: 74%;
+      height: 66px;
+      background: #9bb8c0;
+      transform: rotate(-18deg);
+      border-radius: 50px;
+      opacity: .8;
+    }
+
+    .pin {
+      position: absolute;
+      left: 53%;
+      top: 43%;
+      width: 52px;
+      height: 52px;
+      border-radius: 50% 50% 50% 0;
+      background: var(--rose);
+      transform: rotate(-45deg);
+      box-shadow: 0 10px 30px rgba(185,95,88,.36);
+      animation: pulse 1.8s infinite;
+    }
+
+    .pin::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      background: #fff8ed;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(185,95,88,.35), 0 10px 30px rgba(185,95,88,.36); }
+      50% { box-shadow: 0 0 0 16px rgba(185,95,88,0), 0 10px 30px rgba(185,95,88,.36); }
+    }
+
+    .route {
+      position: absolute;
+      left: 13%;
+      bottom: 25%;
+      width: 54%;
+      height: 70px;
+      border-bottom: 4px dashed var(--caramel);
+      border-right: 4px dashed var(--caramel);
+      border-radius: 0 0 34px 0;
+    }
+
+    .address {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      background: #fffaf1;
+      border: 1px solid var(--line);
+      line-height: 1.65;
+      box-shadow: 0 10px 30px rgba(91, 56, 39, .08);
+    }
+
+    .address b { display: block; font-size: 18px; }
+    .address span { color: rgba(40,29,23,.65); font-size: 14px; }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .primary, .secondary {
+      min-height: 48px;
+      border-radius: 8px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .primary {
+      color: #fff8ed;
+      background: var(--coffee);
+      box-shadow: 0 12px 28px rgba(91,56,39,.22);
+    }
+
+    .secondary {
+      color: var(--coffee);
+      background: transparent;
+      border: 1px solid rgba(91,56,39,.28);
+    }
+
+    .rsvp {
+      background:
+        linear-gradient(180deg, rgba(255,248,237,.92), rgba(245,223,189,.78)),
+        #fff4df;
+    }
+
+    .form {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      font-size: 13px;
+      color: rgba(40,29,23,.7);
+      font-weight: 700;
+    }
+
+    .field input {
+      height: 48px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fffaf1;
+      padding: 0 13px;
+      outline: 0;
+      color: var(--ink);
+    }
+
+    .chips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .chip {
+      min-height: 42px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fffaf1;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .chip.selected {
+      background: var(--sage);
+      color: #fff8ed;
+      border-color: var(--sage);
+    }
+
+    .coupon {
+      position: relative;
+      min-height: 116px;
+      margin-top: 16px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--coffee);
+      color: #fff8ed;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .coupon canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+    }
+
+    .coupon strong {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .final {
+      color: #fff8ed;
+      background:
+        radial-gradient(circle at 24% 16%, rgba(231,184,92,.26), transparent 25%),
+        radial-gradient(circle at 76% 80%, rgba(185,95,88,.2), transparent 26%),
+        #2d2018;
+    }
+
+    .poster {
+      border: 1px solid rgba(255,248,237,.24);
+      border-radius: 8px;
+      background: rgba(255,248,237,.1);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .poster h2 { color: #fff8ed; }
+    .poster .sub { color: rgba(255,248,237,.74); }
+
+    .qr {
+      margin: 20px auto 8px;
+      width: 124px;
+      height: 124px;
+      padding: 8px;
+      background: #fff8ed;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .qr i { background: var(--ink); }
+    .qr i:nth-child(2n) { opacity: .3; }
+    .qr i:nth-child(3n) { opacity: .72; }
+    .qr i:nth-child(5n) { opacity: 1; }
+
+    .share-line {
+      text-align: center;
+      color: rgba(255,248,237,.72);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .toast {
+      position: absolute;
+      left: 50%;
+      bottom: 84px;
+      transform: translateX(-50%) translateY(20px);
+      max-width: 82%;
+      padding: 10px 14px;
+      border-radius: 99px;
+      background: rgba(40,29,23,.9);
+      color: #fff8ed;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .28s ease;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dots {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 8px;
+      z-index: 8;
+    }
+
+    .dots button {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(40,29,23,.25);
+      cursor: pointer;
+    }
+
+    .dots button.active { background: var(--rose); transform: scale(1.35); }
+    .hero ~ .dots button, .final ~ .dots button { background: rgba(255,248,237,.38); }
+
+    .progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 3px;
+      width: 100%;
+      z-index: 9;
+      background: rgba(255,255,255,.18);
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 16.666%;
+      background: var(--gold);
+      transition: width .55s ease;
+    }
+
+    .modal {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      background: rgba(32,22,16,.6);
+      z-index: 20;
+      padding: 24px;
+    }
+
+    .modal.show { display: grid; }
+
+    .modal-card {
+      width: min(100%, 330px);
+      border-radius: 8px;
+      background: #fff8ed;
+      color: var(--ink);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .modal-card h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+    }
+
+    .modal-card p {
+      color: rgba(40,29,23,.68);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .modal-card .actions { grid-template-columns: 1fr; }
+
+    @media (max-height: 720px) {
+      .screen { padding-top: 22px; padding-bottom: 24px; }
+      h1 { font-size: 54px; }
+      h2 { font-size: 29px; }
+      .hero-title { margin-top: 18px; }
+      .window-scene, .map { min-height: 240px; height: 38vh; }
+      .timeline { gap: 9px; }
+      .story { padding: 12px; }
+      .counter-row { gap: 7px; }
+      .counter strong { font-size: 21px; }
+      .coupon { min-height: 96px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone" id="app" aria-label="小馆咖啡一周年 H5 邀请函">
+    <div class="progress"><span id="progress"></span></div>
+    <div class="stage" id="stage">
+      <section class="screen hero active">
+        <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+        <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="topbar">
+          <div class="brand"><span class="mark"></span><span>小馆咖啡</span></div>
+          <button class="icon-btn" id="musicBtn" aria-label="开启或关闭背景声">
+            <svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+          </button>
+        </div>
+        <div class="hero-title">
+          <span class="eyebrow">一周年特别邀请</span>
+          <h1>365<br>杯故事</h1>
+          <p>这一年，我们把咖啡熬成问候，把小店等成你我熟悉的老地方。</p>
+        </div>
+        <div>
+          <div class="hero-card">
+            <strong>6月30日 19:30</strong>
+            <div class="meta-grid">
+              <p><span>主题</span>小馆咖啡一周年夜</p>
+              <p><span>地点</span>郑州智能科技职业技术学院</p>
+            </div>
+          </div>
+          <div class="hint">上滑赴约</div>
+        </div>
+      </section>
+
+      <section class="screen light">
+        <div class="section-head">
+          <span class="kicker">BRAND TEMPERATURE</span>
+          <h2>一年里，杯口有温度，座位有名字</h2>
+          <p class="sub">从第一位客人推门，到第 365 个黄昏亮灯，小馆咖啡一直在做一件小事：让每个人都能慢慢坐下来。</p>
+        </div>
+        <div class="timeline">
+          <article class="story"><b>春天 <span>第一张手写杯套</span></b><p>我们把“今天也辛苦了”写在杯套上，后来它成了很多人拍照分享的小暗号。</p></article>
+          <article class="story"><b>夏天 <span>窗边长桌坐满</span></b><p>有人写方案，有人等朋友，有人只是躲进冷气里喝一口冰拿铁。</p></article>
+          <article class="story"><b>冬天 <span>热美式续杯计划</span></b><p>熟客说，小馆像城市里的一个暂停键，于是我们决定把周年也办得慢一点。</p></article>
+        </div>
+        <div class="counter-row">
+          <div class="counter"><strong data-count="365">0</strong><span>天陪伴</span></div>
+          <div class="counter"><strong data-count="4218">0</strong><span>杯咖啡</span></div>
+          <div class="counter"><strong data-count="128">0</strong><span>个故事</span></div>
+        </div>
+      </section>
+
+      <section class="screen room">
+        <div class="section-head">
+          <span class="kicker">SPACE ATMOSPHERE</span>
+          <h2>把熟悉的老地方，留给今晚的你</h2>
+          <p class="sub">窗边长桌、木质吧台、暖黄色吊灯、绿植角落，每一处都为聊天和合照准备好了。</p>
+        </div>
+        <div class="window-scene" aria-label="小馆咖啡环境插画">
+          <div class="lamp"></div>
+          <div class="plant"><i class="leaf"></i><i class="leaf"></i><i class="leaf"></i><i class="pot"></i></div>
+          <div class="table"></div>
+          <div class="cup"></div>
+        </div>
+        <div class="tag-row">
+          <div class="tag"><b>手冲吧台</b>周年限定豆单现场开放试饮</div>
+          <div class="tag"><b>窗边座位</b>保留给最早到店的 12 位朋友</div>
+        </div>
+      </section>
+
+      <section class="screen event">
+        <div class="section-head">
+          <span class="kicker">ANNIVERSARY PROGRAM</span>
+          <h2>今晚不赶时间，只赶一场温柔的热闹</h2>
+          <p class="sub">点击日程卡片，提前收藏你的周年时刻。</p>
+        </div>
+        <div class="agenda">
+          <button data-detail="19:30 入场签到，领取一周年纪念杯套与手写号码牌。"><time>19:30</time><span><strong>暖灯签到</strong>纪念杯套 / 拍照打卡</span><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button data-detail="20:00 主理人分享这一年最难忘的三杯咖啡，并开放周年限定豆单试饮。"><time>20:00</time><span><strong>365 杯故事会</strong>主理人分享 / 限定试饮</span><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button data-detail="20:45 现场抽取 8 位幸运客人，送出月卡、挂耳礼盒与下一杯免单券。"><time>20:45</time><span><strong>老朋友抽礼</strong>月卡 / 挂耳 / 免单券</span><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+        <div class="detail" id="detail">点击上方任意环节，查看活动说明。</div>
+      </section>
+
+      <section class="screen map-screen">
+        <div class="section-head">
+          <span class="kicker">LOCATION</span>
+          <h2>顺着孟港路，走到校园里的暖灯旁</h2>
+          <p class="sub">地址位于郑州市新郑市孟港路六号郑州智能科技职业技术学院，门口有木色招牌和一盏暖灯。</p>
+        </div>
+        <div class="map" aria-label="小馆咖啡位置示意地图">
+          <div class="park"></div>
+          <div class="river"></div>
+          <div class="route"></div>
+          <div class="pin"></div>
+        </div>
+        <div class="address">
+          <b>小馆咖啡</b>
+          <span>郑州市新郑市孟港路六号<br>郑州智能科技职业技术学院<br>营业时间 10:00-22:00 / 周年夜延长至 23:00</span>
+        </div>
+        <div class="actions">
+          <button class="primary" id="copyAddress">复制地址</button>
+          <button class="secondary" id="routeBtn">生成路线</button>
+        </div>
+      </section>
+
+      <section class="screen rsvp">
+        <div class="section-head">
+          <span class="kicker">RSVP & GIFT</span>
+          <h2>留一个名字，给你留一杯周年特调</h2>
+          <p class="sub">填写后可解锁到店小礼。静态 H5 演示会把信息保存在本机，便于课堂展示。</p>
+        </div>
+        <form class="form" id="rsvpForm">
+          <div class="field"><label for="guest">你的称呼</label><input id="guest" maxlength="12" placeholder="例如：阿秋" /></div>
+          <div class="field"><label for="phone">联系方式</label><input id="phone" maxlength="18" placeholder="手机号或微信号" /></div>
+          <div class="field">
+            <label>同行人数</label>
+            <div class="chips" id="chips">
+              <button class="chip selected" type="button" data-value="1">1 人</button>
+              <button class="chip" type="button" data-value="2">2 人</button>
+              <button class="chip" type="button" data-value="3">3 人</button>
+            </div>
+          </div>
+          <button class="primary" type="submit">确认赴约</button>
+        </form>
+        <div class="coupon" id="coupon">
+          <div><strong>周年隐藏券</strong><span>刮开领取下一杯 8 折</span></div>
+          <canvas id="scratch"></canvas>
+        </div>
+      </section>
+
+      <section class="screen final">
+        <div class="topbar">
+          <div class="brand"><span class="mark"></span><span>小馆咖啡</span></div>
+          <button class="icon-btn" id="restart" aria-label="回到首页">
+            <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v6h6"/></svg>
+          </button>
+        </div>
+        <div class="poster">
+          <span class="kicker">SHARE INVITATION</span>
+          <h2>把这杯周年咖啡，递给想见的人</h2>
+          <p class="sub">转发邀请函，凭页面到店可领取一周年纪念杯套。老朋友，新朋友，都欢迎坐一会儿。</p>
+          <div class="qr" aria-label="模拟二维码">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <p class="share-line">长按保存画面 / 点击下方按钮生成分享文案</p>
+        </div>
+        <div class="actions">
+          <button class="primary" id="shareBtn">生成分享文案</button>
+          <button class="secondary" id="bookBtn">我想赴约</button>
+        </div>
+      </section>
+    </div>
+
+    <nav class="dots" id="dots" aria-label="页面导航"></nav>
+    <div class="toast" id="toast"></div>
+    <div class="modal" id="modal">
+      <div class="modal-card">
+        <h3 id="modalTitle">赴约成功</h3>
+        <p id="modalText">今晚的小馆，已经为你留了一束暖光。</p>
+        <div class="actions">
+          <button class="primary" id="closeModal">知道了</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const stage = document.querySelector("#stage");
+    const screens = [...document.querySelectorAll(".screen")];
+    const dots = document.querySelector("#dots");
+    const progress = document.querySelector("#progress");
+    const toast = document.querySelector("#toast");
+    const modal = document.querySelector("#modal");
+    const modalTitle = document.querySelector("#modalTitle");
+    const modalText = document.querySelector("#modalText");
+    let current = 0;
+    let startY = 0;
+    let selectedPeople = "1";
+    let audioCtx;
+    let audioTimer;
+    let musicOn = false;
+
+    screens.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `跳转到第 ${index + 1} 屏`);
+      dot.addEventListener("click", () => go(index));
+      dots.appendChild(dot);
+    });
+
+    function go(index) {
+      current = Math.max(0, Math.min(index, screens.length - 1));
+      stage.style.transform = `translateY(${-current * 100}dvh)`;
+      screens.forEach((screen, i) => screen.classList.toggle("active", i === current));
+      [...dots.children].forEach((dot, i) => dot.classList.toggle("active", i === current));
+      progress.style.width = `${((current + 1) / screens.length) * 100}%`;
+      if (current === 1) animateCounters();
+    }
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => toast.classList.remove("show"), 1900);
+    }
+
+    window.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaY) < 18) return;
+      go(current + (event.deltaY > 0 ? 1 : -1));
+    }, { passive: true });
+
+    window.addEventListener("touchstart", event => startY = event.touches[0].clientY, { passive: true });
+    window.addEventListener("touchend", event => {
+      const endY = event.changedTouches[0].clientY;
+      const diff = startY - endY;
+      if (Math.abs(diff) > 48) go(current + (diff > 0 ? 1 : -1));
+    }, { passive: true });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowDown") go(current + 1);
+      if (event.key === "ArrowUp") go(current - 1);
+    });
+
+    function animateCounters() {
+      document.querySelectorAll("[data-count]").forEach(el => {
+        if (el.dataset.done) return;
+        el.dataset.done = "1";
+        const target = Number(el.dataset.count);
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const rate = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - rate, 3);
+          el.textContent = Math.round(target * eased).toLocaleString("zh-CN");
+          if (rate < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }
+
+    document.querySelectorAll(".agenda button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelector("#detail").textContent = button.dataset.detail;
+      });
+    });
+
+    document.querySelector("#copyAddress").addEventListener("click", async () => {
+      const text = "小馆咖啡：郑州市新郑市孟港路六号郑州智能科技职业技术学院";
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("地址已复制，出发时粘贴到地图即可");
+      } catch {
+        showToast(text);
+      }
+    });
+
+    document.querySelector("#routeBtn").addEventListener("click", () => {
+      showToast("路线已生成：导航至郑州智能科技职业技术学院");
+    });
+
+    document.querySelector("#chips").addEventListener("click", event => {
+      const chip = event.target.closest(".chip");
+      if (!chip) return;
+      document.querySelectorAll(".chip").forEach(item => item.classList.remove("selected"));
+      chip.classList.add("selected");
+      selectedPeople = chip.dataset.value;
+    });
+
+    document.querySelector("#rsvpForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const guest = document.querySelector("#guest").value.trim();
+      const phone = document.querySelector("#phone").value.trim();
+      if (!guest || !phone) {
+        showToast("请先留下称呼和联系方式");
+        return;
+      }
+      localStorage.setItem("xiaoguan-rsvp", JSON.stringify({ guest, phone, selectedPeople }));
+      modalTitle.textContent = "赴约成功";
+      modalText.textContent = `${guest}，小馆已为你和 ${selectedPeople} 位朋友留好周年特调。`;
+      modal.classList.add("show");
+    });
+
+    document.querySelector("#closeModal").addEventListener("click", () => modal.classList.remove("show"));
+    document.querySelector("#bookBtn").addEventListener("click", () => go(5));
+    document.querySelector("#restart").addEventListener("click", () => go(0));
+
+    document.querySelector("#shareBtn").addEventListener("click", async () => {
+      const text = "我收到了小馆咖啡一周年邀请函：365天，一杯杯咖啡交换故事。6月30日19:30，郑州市新郑市孟港路六号郑州智能科技职业技术学院见。";
+      if (navigator.share) {
+        try { await navigator.share({ title: "小馆咖啡一周年邀请函", text }); return; } catch {}
+      }
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("分享文案已复制");
+      } catch {
+        showToast(text);
+      }
+    });
+
+    document.querySelector("#musicBtn").addEventListener("click", async () => {
+      musicOn = !musicOn;
+      if (musicOn) startCoffeeSound();
+      else stopCoffeeSound();
+      showToast(musicOn ? "背景声已开启" : "背景声已关闭");
+    });
+
+    function startCoffeeSound() {
+      audioCtx ||= new (window.AudioContext || window.webkitAudioContext)();
+      const notes = [261.63, 329.63, 392, 493.88];
+      let i = 0;
+      clearInterval(audioTimer);
+      audioTimer = setInterval(() => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = notes[i % notes.length];
+        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.045, audioCtx.currentTime + .04);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + .42);
+        osc.connect(gain).connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + .46);
+        i += 1;
+      }, 760);
+    }
+
+    function stopCoffeeSound() {
+      clearInterval(audioTimer);
+      audioTimer = null;
+    }
+
+    function drawHero() {
+      const canvas = document.querySelector("#heroCanvas");
+      const ctx = canvas.getContext("2d");
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = canvas.clientWidth * ratio;
+      canvas.height = canvas.clientHeight * ratio;
+      ctx.scale(ratio, ratio);
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      const grad = ctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, "#2c2018");
+      grad.addColorStop(.58, "#6e4630");
+      grad.addColorStop(1, "#1e1511");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+      ctx.globalAlpha = .28;
+      for (let i = 0; i < 120; i++) {
+        ctx.fillStyle = i % 3 ? "#f3d49c" : "#ffffff";
+        ctx.beginPath();
+        ctx.arc(Math.random() * w, Math.random() * h, Math.random() * 1.4 + .3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = "rgba(255, 248, 237, .12)";
+      ctx.beginPath();
+      ctx.ellipse(w * .56, h * .74, w * .45, w * .2, -.15, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "rgba(20, 12, 8, .36)";
+      ctx.beginPath();
+      ctx.ellipse(w * .56, h * .77, w * .34, w * .13, -.15, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function initScratch() {
+      const canvas = document.querySelector("#scratch");
+      const coupon = document.querySelector("#coupon");
+      const ctx = canvas.getContext("2d");
+      let drawing = false;
+
+      function size() {
+        const rect = coupon.getBoundingClientRect();
+        const ratio = window.devicePixelRatio || 1;
+        canvas.width = rect.width * ratio;
+        canvas.height = rect.height * ratio;
+        canvas.style.width = `${rect.width}px`;
+        canvas.style.height = `${rect.height}px`;
+        ctx.scale(ratio, ratio);
+        ctx.globalCompositeOperation = "source-over";
+        ctx.fillStyle = "#c7b49a";
+        ctx.fillRect(0, 0, rect.width, rect.height);
+        ctx.fillStyle = "rgba(255,255,255,.55)";
+        ctx.font = "700 16px Microsoft YaHei";
+        ctx.textAlign = "center";
+        ctx.fillText("刮开这张周年券", rect.width / 2, rect.height / 2 + 5);
+      }
+
+      function scratch(x, y) {
+        const rect = canvas.getBoundingClientRect();
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        ctx.arc(x - rect.left, y - rect.top, 18, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      canvas.addEventListener("pointerdown", event => { drawing = true; scratch(event.clientX, event.clientY); });
+      canvas.addEventListener("pointermove", event => { if (drawing) scratch(event.clientX, event.clientY); });
+      window.addEventListener("pointerup", () => drawing = false);
+      size();
+      window.addEventListener("resize", size);
+    }
+
+    window.addEventListener("resize", drawHero);
+    drawHero();
+    initScratch();
+    go(0);
+  </script>
+</body>
+</html>
